@@ -144,29 +144,41 @@ portfolioItems.forEach((item) => {
   portfolioObserver.observe(item);
 });
 
-// Service cards animation
-const serviceCards = document.querySelectorAll(".service-card");
+// Enhanced service cards animation
+const serviceCards = document.querySelectorAll('.service-card');
 
-const serviceObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        }, index * 200);
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
+const serviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s forwards`;
+      }, index * 100);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 serviceCards.forEach((card) => {
-  card.style.opacity = "0";
-  card.style.transform = "translateY(30px)";
-  card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  card.style.opacity = '0';
   serviceObserver.observe(card);
 });
+
+// Logo hover effect
+const logo = document.querySelector('.logo');
+if (logo) {
+  logo.addEventListener('mouseenter', () => {
+    const logoImage = document.querySelector('.logo-image');
+    if (logoImage) {
+      logoImage.style.transform = 'scale(1.05) rotate(5deg)';
+    }
+  });
+  
+  logo.addEventListener('mouseleave', () => {
+    const logoImage = document.querySelector('.logo-image');
+    if (logoImage) {
+      logoImage.style.transform = 'scale(1) rotate(0deg)';
+    }
+  });
+}
 
 // Current year for copyright
 document.addEventListener("DOMContentLoaded", function () {
