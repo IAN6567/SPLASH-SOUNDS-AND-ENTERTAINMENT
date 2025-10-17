@@ -790,3 +790,7 @@
       padding: 20px 15px;
     }
   }
+  .service-card:nth-child(3) .service-image img {
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
