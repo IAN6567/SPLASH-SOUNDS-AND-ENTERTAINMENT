@@ -67,7 +67,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 
   // Format the message for WhatsApp
   const whatsappMessage = `
-*NEW EVENT INQUIRY - Splash Sounds Website*
+*NEW EVENT INQUIRY - Splash Sounds Kenya*
 
 *Name:* ${name}
 *Email:* ${email}
@@ -78,14 +78,14 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 *Message:*
 ${message}
 
-_This message was sent from the Splash Sounds website contact form_
+_This message was sent from the Splash Sounds Kenya website contact form_
     `.trim();
 
   // Encode the message for URL
   const encodedMessage = encodeURIComponent(whatsappMessage);
 
-  // WhatsApp phone number (replace with actual business number)
-  const whatsappNumber = "15551234567"; // Example: US number format
+  // Your WhatsApp number with Kenya country code
+  const whatsappNumber = "254752307098"; // Kenya country code + your number
 
   // Create WhatsApp URL
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -101,43 +101,6 @@ _This message was sent from the Splash Sounds website contact form_
   // Optional: Reset form after submission
   // this.reset();
 });
-
-// Alternative method with phone number input
-function sendToWhatsApp() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const eventType = document.getElementById("event-type").value;
-  const eventDate = document.getElementById("event-date").value;
-  const message = document.getElementById("message").value;
-
-  if (!name || !phone) {
-    alert("Please at least provide your name and phone number.");
-    return;
-  }
-
-  const whatsappMessage = `
-*Event Inquiry - Splash Sounds*
-
-*Name:* ${name}
-*Phone:* ${phone}
-${email ? `*Email:* ${email}` : ""}
-${eventType ? `*Event Type:* ${eventType}` : ""}
-${eventDate ? `*Event Date:* ${eventDate}` : ""}
-
-${message ? `*Message:* ${message}` : ""}
-
-_Website Contact Form_
-    `.trim();
-
-  const encodedMessage = encodeURIComponent(whatsappMessage);
-  const whatsappNumber = "15551234567"; // Replace with actual number
-
-  window.open(
-    `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
-    "_blank"
-  );
-}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -210,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const yearElement = document.querySelector(".copyright p");
   if (yearElement) {
     const currentYear = new Date().getFullYear();
-    yearElement.innerHTML = yearElement.innerHTML.replace("2023", currentYear);
+    yearElement.innerHTML = yearElement.innerHTML.replace("2024", currentYear);
   }
 });
 
