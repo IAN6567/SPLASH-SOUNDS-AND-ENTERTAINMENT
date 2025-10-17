@@ -168,6 +168,7 @@
     </section>
 
     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
         <h2>Get In Touch</h2>
@@ -181,11 +182,15 @@
               </div>
               <div class="contact-detail">
                 <i class="fas fa-phone"></i>
-                <p>+254718868293</p>
+                <p>+254752307098</p>
               </div>
               <div class="contact-detail">
                 <i class="fas fa-envelope"></i>
                 <p>info@splashsounds.com</p>
+              </div>
+              <div class="contact-detail">
+                <i class="fab fa-whatsapp"></i>
+                <p>+254752307098</p>
               </div>
             </div>
 
@@ -199,28 +204,47 @@
               ></a>
               <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
               <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+              <a
+                href="https://wa.me/15551234567"
+                class="social-link whatsapp-link"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+
+            <div class="whatsapp-direct">
+              <h3>Quick Contact</h3>
+              <p>Prefer to message us directly?</p>
+              <a
+                href="https://wa.me/15551234567"
+                class="btn whatsapp-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i> Message us on WhatsApp
+              </a>
             </div>
           </div>
 
           <div class="contact-form">
             <form id="contactForm">
               <div class="form-group">
-                <label for="name">Your Name</label>
+                <label for="name">Your Name *</label>
                 <input type="text" id="name" class="form-control" required />
               </div>
 
               <div class="form-group">
-                <label for="email">Email Address</label>
+                <label for="email">Email Address *</label>
                 <input type="email" id="email" class="form-control" required />
               </div>
 
               <div class="form-group">
-                <label for="phone">Phone Number</label>
+                <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" class="form-control" required />
               </div>
 
               <div class="form-group">
-                <label for="event-type">Event Type</label>
+                <label for="event-type">Event Type *</label>
                 <select id="event-type" class="form-control" required>
                   <option value="">Select Event Type</option>
                   <option value="wedding">Wedding</option>
@@ -228,12 +252,13 @@
                   <option value="birthday">Birthday Party</option>
                   <option value="concert">Concert</option>
                   <option value="festival">Festival</option>
+                  <option value="funeral">Funeral/Memorial</option>
                   <option value="other">Other</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="event-date">Event Date</label>
+                <label for="event-date">Event Date *</label>
                 <input
                   type="date"
                   id="event-date"
@@ -243,16 +268,25 @@
               </div>
 
               <div class="form-group">
-                <label for="message">Your Message</label>
+                <label for="message">Your Message *</label>
                 <textarea
                   id="message"
                   class="form-control"
-                  placeholder="Tell us about your event..."
+                  placeholder="Tell us about your event, number of guests, location, and any specific requirements..."
                   required
                 ></textarea>
               </div>
 
-              <button type="submit" class="btn">Send Message</button>
+              <button type="submit" class="btn whatsapp-submit-btn">
+                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+              </button>
+
+              <p class="form-note">
+                <small
+                  >After clicking the button, you'll be redirected to WhatsApp
+                  to send your message to our team.</small
+                >
+              </p>
             </form>
           </div>
         </div>

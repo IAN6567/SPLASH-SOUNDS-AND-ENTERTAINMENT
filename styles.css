@@ -560,3 +560,64 @@ footer {
         padding: 20px;
     }
 }
+/*add*/
+/* WhatsApp Specific Styles */
+.whatsapp-link {
+    background: linear-gradient(to right, #25D366, #128C7E) !important;
+}
+
+.whatsapp-btn {
+    background: linear-gradient(to right, #25D366, #128C7E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.whatsapp-submit-btn {
+    background: linear-gradient(to right, #25D366, #128C7E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.whatsapp-direct {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.whatsapp-direct h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+.contact-detail .fab.fa-whatsapp {
+    color: #25D366;
+}
+
+/* Enhanced form styles */
+.form-group.focused label {
+    color: var(--secondary);
+    transform: translateY(-5px);
+    font-size: 0.9rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    transition: var(--transition);
+}
