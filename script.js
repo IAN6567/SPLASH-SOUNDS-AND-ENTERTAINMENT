@@ -23,84 +23,10 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// WhatsApp form submission
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  // Get form values
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const eventType = document.getElementById("event-type").value;
-  const eventDate = document.getElementById("event-date").value;
-  const message = document.getElementById("message").value;
-
-  // Basic form validation
-  if (!name || !email || !phone || !eventType || !eventDate || !message) {
-    alert("Please fill in all required fields.");
-    return;
-  }
-
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address.");
-    return;
-  }
-
-  // Phone validation (basic)
-  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-  if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ""))) {
-    alert("Please enter a valid phone number.");
-    return;
-  }
-
-  // Date validation
-  const selectedDate = new Date(eventDate);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  if (selectedDate < today) {
-    alert("Please select a future date for your event.");
-    return;
-  }
-
-  // Format the message for WhatsApp
-  const whatsappMessage = `
-*NEW EVENT INQUIRY - Splash Sounds Kenya*
-
-*Name:* ${name}
-*Email:* ${email}
-*Phone:* ${phone}
-*Event Type:* ${eventType}
-*Event Date:* ${eventDate}
-
-*Message:*
-${message}
-
-_This message was sent from the Splash Sounds Kenya website contact form_
-    `.trim();
-
-  // Encode the message for URL
-  const encodedMessage = encodeURIComponent(whatsappMessage);
-
-  // Your WhatsApp number with Kenya country code
-  const whatsappNumber = "254752307098"; // Kenya country code + your number
-
-  // Create WhatsApp URL
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-  // Open WhatsApp in a new tab
-  window.open(whatsappURL, "_blank");
-
-  // Show success message
-  alert(
-    `Thank you ${name}! Your message has been prepared for WhatsApp. You'll be redirected to send it to our team.`
-  );
-
-  // Optional: Reset form after submission
-  // this.reset();
-});
+// Remove the old contact form submission since we're using modal now
+// document.getElementById("contactForm").addEventListener("submit", function (e) {
+//   ... old code ...
+// });
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -202,4 +128,131 @@ formInputs.forEach((input) => {
       this.parentElement.classList.remove("focused");
     }
   });
+});
+
+// Booking Modal Functionality
+const bookingModal = document.getElementById('bookingModal');
+const openBookingModal = document.getElementById('openBookingModal');
+const openBookingModalFromContact = document.getElementById('openBookingModalFromContact');
+const closeModal = document.querySelector('.close-modal');
+const bookingForm = document.getElementById('bookingForm');
+
+// Function to open modal
+function openModal() {
+    bookingModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Function to close modal
+function closeModalFunc() {
+    bookingModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Open modal from hero section button
+openBookingModal.addEventListener('click', function(e) {
+    e.preventDefault();
+    openModal();
+});
+
+// Open modal from contact section button
+openBookingModalFromContact.addEventListener('click', function() {
+    openModal();
+});
+
+// Close modal
+closeModal.addEventListener('click', function() {
+    closeModalFunc();
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', function(e) {
+    if (e.target === bookingModal) {
+        closeModalFunc();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && bookingModal.style.display === 'block') {
+        closeModalFunc();
+    }
+});
+
+// Booking form submission
+bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('booking-name').value;
+    const phone = document.getElementById('booking-phone').value;
+    const eventType = document.getElementById('booking-event-type').value;
+    const guests = document.getElementById('booking-guests').value;
+    const date = document.getElementById('booking-date').value;
+    const budget = document.getElementById('booking-budget').value;
+    const message = document.getElementById('booking-message').value;
+    
+    // Get selected services
+    const serviceCheckboxes = document.querySelectorAll('input[name="booking-services"]:checked');
+    const services = Array.from(serviceCheckboxes).map(cb => cb.value).join(', ');
+    
+    // Basic validation
+    if (!name || !phone || !eventType || !date || !message) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
+    // Phone validation (basic)
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ""))) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+    
+    // Date validation
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    if (selectedDate < today) {
+        alert("Please select a future date for your event.");
+        return;
+    }
+    
+    // Format the message for WhatsApp
+    const whatsappMessage = `
+*EVENT BOOKING REQUEST - Splash Sounds Kenya*
+
+*Name:* ${name}
+*Phone:* ${phone}
+*Event Type:* ${eventType}
+${guests ? `*Number of Guests:* ${guests}` : ''}
+*Event Date:* ${date}
+${budget ? `*Budget Range:* ${budget}` : ''}
+${services ? `*Services Needed:* ${services}` : ''}
+
+*Event Details:*
+${message}
+
+_This booking request was sent from the Splash Sounds Kenya website_
+    `.trim();
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Your WhatsApp number
+    const whatsappNumber = "254752307098";
+    
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
+    
+    // Show success message
+    alert(`Thank you ${name}! Your booking request has been prepared for WhatsApp. You'll be redirected to send it to our team.`);
+    
+    // Close modal and reset form
+    closeModalFunc();
+    this.reset();
 });

@@ -46,13 +46,16 @@
         </p>
         <div class="hero-btns">
           <a href="#services" class="btn">Our Services</a>
-          <a href="#contact" class="btn btn-secondary">Book Now</a>
+          <!-- In the hero section, change the Book Now button -->
+          <a href="#contact" class="btn btn-secondary" id="openBookingModal"
+            >Book Now</a
+          >
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <!-- Services Section -->
+
     <section class="services" id="services">
       <div class="container">
         <h2>Our Services</h2>
@@ -218,6 +221,7 @@
     </section>
 
     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
         <h2>Get In Touch</h2>
@@ -245,21 +249,13 @@
 
             <h3>Follow Us</h3>
             <div class="social-links">
-              <a
-                href="https://www.facebook.com/share/17QrUsx6j1/"
-                class="social-link"
+              <a href="#" class="social-link"
                 ><i class="fab fa-facebook-f"></i
               ></a>
-              <a
-                href="https://www.instagram.com/splash.sounds.entertainment?utm_source=qr&igsh=MTRkMWdsOHhnYzhxZQ=="
-                class="social-link"
+              <a href="#" class="social-link"
                 ><i class="fab fa-instagram"></i
               ></a>
-              <a
-                href="https://www.tiktok.com/@splash.sounds.ent?_t=ZM-90cqsO5L10C&_r=1"
-                class="social-link"
-                ><i class="fab fa-tiktok"></i
-              ></a>
+              <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
               <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
               <a
                 href="https://wa.me/254752307098"
@@ -269,82 +265,30 @@
                 <i class="fab fa-whatsapp"></i>
               </a>
             </div>
-
-            <div class="whatsapp-direct">
-              <h3>Quick Contact</h3>
-              <p>Prefer to message us directly?</p>
-              <a
-                href="https://wa.me/254752307098"
-                class="btn whatsapp-btn"
-                target="_blank"
-              >
-                <i class="fab fa-whatsapp"></i> Message us on WhatsApp
-              </a>
-            </div>
           </div>
 
-          <div class="contact-form">
-            <form id="contactForm">
-              <div class="form-group">
-                <label for="name">Your Name *</label>
-                <input type="text" id="name" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="event-type">Event Type *</label>
-                <select id="event-type" class="form-control" required>
-                  <option value="">Select Event Type</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="corporate">Corporate Event</option>
-                  <option value="birthday">Birthday Party</option>
-                  <option value="concert">Concert</option>
-                  <option value="festival">Festival</option>
-                  <option value="funeral">Funeral/Memorial</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="event-date">Event Date *</label>
-                <input
-                  type="date"
-                  id="event-date"
-                  class="form-control"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Your Message *</label>
-                <textarea
-                  id="message"
-                  class="form-control"
-                  placeholder="Tell us about your event, number of guests, location, and any specific requirements..."
-                  required
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn whatsapp-submit-btn">
-                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+          <!-- Replace the form with a booking CTA -->
+          <div class="booking-cta">
+            <div class="cta-content">
+              <i class="fas fa-calendar-check cta-icon"></i>
+              <h3>Ready to Book Your Event?</h3>
+              <p>
+                Get a personalized quote and secure your date with our
+                professional event services.
+              </p>
+              <button
+                class="btn whatsapp-submit-btn"
+                id="openBookingModalFromContact"
+              >
+                <i class="fas fa-calendar-plus"></i> Book Now
               </button>
-
-              <p class="form-note">
+              <p class="cta-note">
                 <small
-                  >After clicking the button, you'll be redirected to WhatsApp
-                  to send your message to our team.</small
+                  >Quick response guaranteed • Best prices • Professional
+                  service</small
                 >
               </p>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -401,7 +345,155 @@
         </div>
       </div>
     </footer>
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Book Your Event</h3>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="booking-name">Your Name *</label>
+                <input
+                  type="text"
+                  id="booking-name"
+                  class="form-control"
+                  required
+                />
+              </div>
 
+              <div class="form-group">
+                <label for="booking-phone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="booking-phone"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="booking-event-type">Event Type *</label>
+                <select id="booking-event-type" class="form-control" required>
+                  <option value="">Select Event Type</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="birthday">Birthday Party</option>
+                  <option value="concert">Concert</option>
+                  <option value="festival">Festival</option>
+                  <option value="funeral">Funeral/Memorial</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="booking-guests">Number of Guests</label>
+                <select id="booking-guests" class="form-control">
+                  <option value="">Select Guest Count</option>
+                  <option value="1-50">1-50 Guests</option>
+                  <option value="51-100">51-100 Guests</option>
+                  <option value="101-200">101-200 Guests</option>
+                  <option value="201-500">201-500 Guests</option>
+                  <option value="500+">500+ Guests</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="booking-date">Event Date *</label>
+                <input
+                  type="date"
+                  id="booking-date"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="booking-budget">Budget Range</label>
+                <select id="booking-budget" class="form-control">
+                  <option value="">Select Budget</option>
+                  <option value="10k-25k">KES 10,000 - 25,000</option>
+                  <option value="25k-50k">KES 25,000 - 50,000</option>
+                  <option value="50k-100k">KES 50,000 - 100,000</option>
+                  <option value="100k-250k">KES 100,000 - 250,000</option>
+                  <option value="250k+">KES 250,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="booking-services">Services Needed *</label>
+              <div class="services-checkbox">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="booking-services"
+                    value="sound-system"
+                  />
+                  Sound System Rental
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="booking-services" value="dj" />
+                  DJ Services
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="booking-services"
+                    value="lighting"
+                  />
+                  Lighting
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="booking-services"
+                    value="staffing"
+                  />
+                  Event Staffing
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="booking-services"
+                    value="stage"
+                  />
+                  Stage Setup
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="booking-message">Event Details *</label>
+              <textarea
+                id="booking-message"
+                class="form-control"
+                placeholder="Tell us about your venue, specific requirements, timeline, and any special requests..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn whatsapp-submit-btn full-width">
+              <i class="fab fa-whatsapp"></i> Send Booking Request via WhatsApp
+            </button>
+
+            <p class="form-note">
+              <small
+                >We'll contact you within 24 hours to confirm your booking
+                details.</small
+              >
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
