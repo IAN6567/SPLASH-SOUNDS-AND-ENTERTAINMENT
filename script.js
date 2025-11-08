@@ -23,11 +23,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Remove the old contact form submission since we're using modal now
-// document.getElementById("contactForm").addEventListener("submit", function (e) {
-//   ... old code ...
-// });
-
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
