@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -24,6 +25,7 @@ body {
   color: var(--dark);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container {
@@ -857,6 +859,45 @@ footer {
   .service-card {
     margin-bottom: 20px;
   }
+
+  /* Mobile Contact Section Fix */
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .booking-cta {
+    padding: 30px 20px;
+    margin: 0 auto;
+  }
+
+  .cta-content {
+    max-width: 100%;
+  }
+
+  .cta-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-detail {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
@@ -898,6 +939,53 @@ footer {
 
   .service-content {
     padding: 20px 15px;
+  }
+
+  /* Mobile Booking CTA Fix */
+  .booking-cta {
+    padding: 25px 15px;
+  }
+
+  .cta-icon {
+    font-size: 2.5rem;
+  }
+
+  .cta-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .cta-content p {
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Portfolio Fix */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-item {
+    height: 250px;
+  }
+
+  .portfolio-overlay {
+    padding: 15px;
+  }
+
+  .portfolio-overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Mobile Footer Fix */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-col h3:after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 .service-card:nth-child(3) .service-image img {
@@ -1029,4 +1117,29 @@ footer {
 
 .contact-form .form-group {
   margin-bottom: 15px;
+}
+
+/* Mobile Modal Fixes */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-body {
+    padding: 20px 15px;
+  }
+
+  .modal-body .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .modal-body .services-checkbox {
+    grid-template-columns: 1fr;
+  }
 }
