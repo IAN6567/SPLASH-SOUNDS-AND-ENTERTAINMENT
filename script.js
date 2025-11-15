@@ -174,6 +174,36 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Format phone number to international format for WhatsApp
+function formatPhoneNumber(phone) {
+    // Remove all non-digit characters
+    let cleaned = phone.replace(/\D/g, '');
+    
+    // If number starts with 0, replace with 254 (Kenya country code)
+    if (cleaned.startsWith('0')) {
+        cleaned = '254' + cleaned.substring(1);
+    }
+    
+    // If number doesn't start with country code, add it
+    if (!cleaned.startsWith('254')) {
+        cleaned = '254' + cleaned;
+    }
+    
+    return cleaned;
+}
+
+// Validate Kenyan phone number
+function isValidKenyanPhone(phone) {
+    // Remove all non-digit characters
+    const cleaned = phone.replace(/\D/g, '');
+    
+    // Check if it's a valid Kenyan number format
+    // Accepts: 07xxxxxxxx, 01xxxxxxxx, +2547xxxxxxxx, +2541xxxxxxxx, 2547xxxxxxxx, 2541xxxxxxxx
+    const kenyanRegex = /^(?:(?:\+?254)|(?:0))?[17]\d{8}$/;
+    
+    return kenyanRegex.test(cleaned);
+}
+
 // Booking form submission - SEND TO TWO NUMBERS
 bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -197,10 +227,9 @@ bookingForm.addEventListener('submit', function(e) {
         return;
     }
     
-    // Phone validation (basic)
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-    if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ""))) {
-        alert("Please enter a valid phone number.");
+    // Phone validation for Kenyan numbers
+    if (!isValidKenyanPhone(phone)) {
+        alert("Please enter a valid Kenyan phone number starting with 07, 01, or +254 (e.g., 0712345678, +254712345678)");
         return;
     }
     
@@ -235,10 +264,13 @@ _This booking request was sent from the Splash Sounds Kenya website_
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
     
+    // Format phone number for WhatsApp
+    const formattedPhone = formatPhoneNumber(phone);
+    
     // WhatsApp numbers to send to
     const whatsappNumbers = [
         "254723281784", // First number
-        "254752307098"  // Second number
+        "254723281784"  // Second number (same as requested)
     ];
     
     // Function to send message to a number

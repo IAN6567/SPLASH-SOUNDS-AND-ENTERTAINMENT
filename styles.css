@@ -1209,3 +1209,15 @@ footer::before {
     grid-template-columns: 1fr;
   }
 }
+/* Phone hint styling */
+.phone-hint {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.form-group .phone-hint {
+  margin-top: 5px;
+}
