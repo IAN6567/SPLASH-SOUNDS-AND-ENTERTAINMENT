@@ -190,21 +190,21 @@ header.scrolled {
   border: none;
   color: white;
   font-size: 1.5rem;
-  order: -1; /* This moves the hamburger to the left */
-  margin-right: auto; /* Pushes everything else to the right */
+  order: -1;
+  margin-right: auto;
 }
 
 @media (max-width: 768px) {
   .hamburger {
     display: block;
-    order: -1; /* Keep hamburger on left */
-    margin-right: 20px; /* Add some spacing */
+    order: -1;
+    margin-right: 20px;
   }
 
   .nav-links {
     position: fixed;
     top: 70px;
-    left: -100%; /* Changed from right to left */
+    left: -100%;
     width: 80%;
     height: calc(100vh - 70px);
     background: var(--dark);
@@ -215,7 +215,7 @@ header.scrolled {
   }
 
   .nav-links.active {
-    left: 0; /* Changed from right to left */
+    left: 0;
   }
 
   .nav-links li {
@@ -223,27 +223,23 @@ header.scrolled {
   }
 
   .logo-text {
-    margin-left: auto; /* Push logo to center/right when hamburger is visible */
+    margin-left: auto;
   }
 
-  /* Adjust header layout for mobile */
   .header-container {
-    justify-content: flex-start; /* Align items to start */
+    justify-content: flex-start;
   }
 
   .logo {
-    margin-left: auto; /* Push logo to the right */
-    margin-right: auto; /* Center the logo */
-    transform: translateX(
-      -20px
-    ); /* Adjust centering to account for hamburger */
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-20px);
   }
 }
 
 @media (max-width: 576px) {
-  /* Further adjustments for very small screens */
   .logo {
-    transform: translateX(-10px); /* Less adjustment on smaller screens */
+    transform: translateX(-10px);
   }
 }
 
@@ -538,9 +534,9 @@ header.scrolled {
   justify-content: flex-end;
   padding: 25px;
   color: white;
-  opacity: 0;
+  opacity: 1; /* Changed from 0 to 1 to make text always visible */
   transition: var(--transition);
-  transform: translateY(20px);
+  transform: translateY(0); /* Changed from translateY(20px) to 0 */
 }
 
 .portfolio-item:hover .portfolio-overlay {

@@ -174,7 +174,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Booking form submission
+// Booking form submission - SEND TO TWO NUMBERS
 bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -235,14 +235,25 @@ _This booking request was sent from the Splash Sounds Kenya website_
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
     
-    // Your WhatsApp number
-    const whatsappNumber = "254752307098";
+    // WhatsApp numbers to send to
+    const whatsappNumbers = [
+        "254723281784", // First number
+        "254752307098"  // Second number
+    ];
     
-    // Create WhatsApp URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    // Function to send message to a number
+    function sendToWhatsApp(number) {
+        const whatsappURL = `https://wa.me/${number}?text=${encodedMessage}`;
+        window.open(whatsappURL, '_blank');
+    }
     
-    // Open WhatsApp in a new tab
-    window.open(whatsappURL, '_blank');
+    // Send to first number
+    sendToWhatsApp(whatsappNumbers[0]);
+    
+    // Small delay before sending to second number
+    setTimeout(() => {
+        sendToWhatsApp(whatsappNumbers[1]);
+    }, 1000);
     
     // Show success message
     alert(`Thank you ${name}! Your booking request has been prepared for WhatsApp. You'll be redirected to send it to our team.`);
