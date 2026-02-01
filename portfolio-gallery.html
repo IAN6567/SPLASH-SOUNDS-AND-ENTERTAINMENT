@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splash Sounds | Event Portfolio Gallery</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="View our portfolio of successful events - weddings, corporate events, parties, and concerts with professional sound systems and entertainment.">
+    <meta name="keywords" content="event portfolio, wedding events, corporate events Kenya, party photos, concert setups, event gallery">
+    <meta name="author" content="Splash Sounds">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio-gallery.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="splashlogo.jpg" alt="Splash Sounds Logo" class="logo-image" />
+                <div class="logo-text">Splash <span>Sounds</span></div>
+            </a>
+
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="portfolio-gallery.html" class="active">Gallery</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="container">
+            <h1>Our Event Portfolio</h1>
+            <p class="hero-subtitle">A visual journey through our most memorable events and setups</p>
+            <div class="gallery-stats">
+                <div class="stat">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>50+</h3>
+                    <p>Events Completed</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <h3>1000+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-music"></i>
+                    <h3>24/7</h3>
+                    <p>Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="wedding">Weddings</button>
+                <button class="filter-btn" data-filter="corporate">Corporate</button>
+                <button class="filter-btn" data-filter="birthday">Birthdays</button>
+                <button class="filter-btn" data-filter="concert">Concerts</button>
+                <button class="filter-btn" data-filter="other">Other Events</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-main">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded by JavaScript -->
+            </div>
+            
+            <div class="gallery-load-more">
+                <button class="btn" id="loadMoreBtn">
+                    <i class="fas fa-spinner"></i> Load More Events
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="Event Image">
+                <div class="image-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <div class="event-details">
+                        <p><i class="fas fa-calendar-alt"></i> <span id="modalDate"></span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="modalLocation"></span></p>
+                        <p><i class="fas fa-users"></i> <span id="modalGuests"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-navigation">
+                <button class="modal-nav-btn" id="prevImage">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button class="modal-nav-btn" id="nextImage">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Splash Sounds</h3>
+                    <p>
+                        Bringing energy and professionalism to events of all sizes with
+                        premium sound systems and entertainment services across Kenya.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="portfolio-gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Eldoret, Kenya</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254723281784">+254 723 281784</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@splashsounds.co.ke">info@splashsounds.co.ke</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Sun: 24/7 Available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    &copy; 2024 Splash Sounds and Entertainment. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio-gallery.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

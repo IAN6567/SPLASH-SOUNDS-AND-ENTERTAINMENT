@@ -294,3 +294,200 @@ _This booking request was sent from the Splash Sounds Kenya website_
     closeModalFunc();
     this.reset();
 });
+
+// ========== TESTIMONIALS FUNCTIONALITY ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // Testimonials data
+    const testimonials = [
+        {
+            name: "Mark Lagat",
+            title: "Wedding Client",
+            rating: 5,
+            text: "Splash Sounds made our wedding day absolutely magical! The sound system was crystal clear, and the DJ kept everyone on the dance floor all night. Their professionalism and attention to detail were outstanding. Highly recommend!",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        },
+        {
+            name: "Ian Kangwana",
+            title: "Corporate Event Manager",
+            rating: 5,
+            text: "We hired Splash Sounds for our annual company conference and they exceeded all expectations. The audio quality was perfect for our presentations, and the lighting setup created the perfect ambiance. Their team was punctual, professional, and extremely talented.",
+            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        },
+        {
+            name: "Stephen Muchiri",
+            title: "Birthday Party Host",
+            rating: 5,
+            text: "For my 30th birthday party, I wanted everything to be perfect. Splash Sounds delivered beyond my wildest dreams! The DJ understood exactly what the crowd wanted, and the sound system was powerful yet clear. The event staff were incredibly helpful throughout the night.",
+            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        },
+        {
+            name: "Sarah Wanjiku",
+            title: "Event Planner",
+            rating: 5,
+            text: "As a professional event planner, I've worked with many sound and entertainment companies. Splash Sounds stands out for their reliability, quality equipment, and talented staff. They've never let me down and always make my events shine!",
+            avatar: "https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        }
+    ];
+
+    // DOM Elements
+    const testimonialSlider = document.getElementById('testimonialSlider');
+    const testimonialDots = document.getElementById('testimonialDots');
+    const prevTestimonialBtn = document.getElementById('prevTestimonial');
+    const nextTestimonialBtn = document.getElementById('nextTestimonial');
+
+    let currentTestimonial = 0;
+    let testimonialCards = [];
+    let dotElements = [];
+
+    // Initialize testimonials
+    function initTestimonials() {
+        // Clear existing content
+        testimonialSlider.innerHTML = '';
+        testimonialDots.innerHTML = '';
+        testimonialCards = [];
+        dotElements = [];
+
+        // Create testimonial cards and dots
+        testimonials.forEach((testimonial, index) => {
+            // Create testimonial card
+            const card = document.createElement('div');
+            card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+            
+            // Generate star rating HTML
+            const stars = '★'.repeat(testimonial.rating);
+            
+            card.innerHTML = `
+                <div class="testimonial-content">
+                    <p class="testimonial-text">${testimonial.text}</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="${testimonial.avatar}" alt="${testimonial.name}" />
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>${testimonial.name}</h4>
+                            <div class="title">${testimonial.title}</div>
+                            <div class="testimonial-rating">
+                                ${stars.split('').map(() => `<i class="fas fa-star"></i>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            testimonialSlider.appendChild(card);
+            testimonialCards.push(card);
+
+            // Create dot
+            const dot = document.createElement('div');
+            dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('data-index', index);
+            dot.addEventListener('click', () => goToTestimonial(index));
+            testimonialDots.appendChild(dot);
+            dotElements.push(dot);
+        });
+    }
+
+    // Navigation functions
+    function goToTestimonial(index) {
+        if (index < 0) index = testimonials.length - 1;
+        if (index >= testimonials.length) index = 0;
+
+        // Remove active class from all cards and dots
+        testimonialCards.forEach(card => {
+            card.classList.remove('active', 'prev');
+        });
+        
+        dotElements.forEach(dot => {
+            dot.classList.remove('active');
+        });
+
+        // Add active class to current card and dot
+        testimonialCards[index].classList.add('active');
+        dotElements[index].classList.add('active');
+        
+        // Add prev class to previous card (for smooth transition)
+        const prevIndex = index === 0 ? testimonials.length - 1 : index - 1;
+        testimonialCards[prevIndex].classList.add('prev');
+
+        currentTestimonial = index;
+    }
+
+    function nextTestimonial() {
+        goToTestimonial(currentTestimonial + 1);
+    }
+
+    function prevTestimonial() {
+        goToTestimonial(currentTestimonial - 1);
+    }
+
+    // Event listeners for navigation
+    prevTestimonialBtn.addEventListener('click', prevTestimonial);
+    nextTestimonialBtn.addEventListener('click', nextTestimonial);
+
+    // Auto-advance testimonials
+    let testimonialInterval;
+    
+    function startAutoTestimonial() {
+        testimonialInterval = setInterval(nextTestimonial, 8000);
+    }
+    
+    function stopAutoTestimonial() {
+        clearInterval(testimonialInterval);
+    }
+    
+    // Initialize and start auto-advance
+    initTestimonials();
+    startAutoTestimonial();
+    
+    // Pause auto-advance on hover
+    testimonialSlider.addEventListener('mouseenter', stopAutoTestimonial);
+    testimonialSlider.addEventListener('mouseleave', startAutoTestimonial);
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    testimonialSlider.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoTestimonial();
+    });
+    
+    testimonialSlider.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleTestimonialSwipe();
+        startAutoTestimonial();
+    });
+    
+    function handleTestimonialSwipe() {
+        const swipeThreshold = 50;
+        
+        if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left
+            nextTestimonial();
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right
+            prevTestimonial();
+        }
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') prevTestimonial();
+        if (e.key === 'ArrowRight') nextTestimonial();
+    });
+});
+
+// ========== FIX FOR PORTFOLIO GALLERY BUTTON ==========
+// Remove any conflicting event listeners and let the link work normally
+document.addEventListener('DOMContentLoaded', function() {
+    // Remove any existing click handlers that might be preventing the link from working
+    const viewPortfolioBtn = document.getElementById('viewPortfolioBtn');
+    
+    if (viewPortfolioBtn) {
+        // Clone the button to remove all event listeners
+        const newBtn = viewPortfolioBtn.cloneNode(true);
+        viewPortfolioBtn.parentNode.replaceChild(newBtn, viewPortfolioBtn);
+        
+        console.log('Portfolio gallery button fixed - should now work as a normal link');
+    }
+});

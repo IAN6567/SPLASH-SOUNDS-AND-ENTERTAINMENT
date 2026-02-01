@@ -4,41 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Splash Sounds and Entertainment | Professional Event Services</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Splash Sounds - Professional sound systems, DJ services, and event staffing in Kenya. Elevate your wedding, corporate events, and parties with premium entertainment solutions.">
-    <meta name="keywords" content="sound systems, DJ services, event staffing, Kenya events, wedding entertainment, corporate events, event lighting, stage setup, Eldoret events, Nairobi events">
-    <meta name="author" content="Splash Sounds">
-    <meta name="robots" content="index, follow">
-    
+    <meta
+      name="description"
+      content="Splash Sounds - Professional sound systems, DJ services, and event staffing in Kenya. Elevate your wedding, corporate events, and parties with premium entertainment solutions."
+    />
+    <meta
+      name="keywords"
+      content="sound systems, DJ services, event staffing, Kenya events, wedding entertainment, corporate events, event lighting, stage setup, Eldoret events, Nairobi events"
+    />
+    <meta name="author" content="Splash Sounds" />
+    <meta name="robots" content="index, follow" />
+
     <!-- Open Graph Meta Tags for Social Media Sharing -->
-    <meta property="og:title" content="Splash Sounds - Professional Event Services">
-    <meta property="og:description" content="Premium sound systems and entertainment services for unforgettable events in Kenya">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://splashsounds.co.ke">
+    <meta
+      property="og:title"
+      content="Splash Sounds - Professional Event Services"
+    />
+    <meta
+      property="og:description"
+      content="Premium sound systems and entertainment services for unforgettable events in Kenya"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://splashsounds.co.ke" />
     <!-- <meta property="og:image" content="https://splashsounds.co.ke/images/og-image.jpg"> -->
-    
+
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Splash Sounds - Professional Event Services">
-    <meta name="twitter:description" content="Premium sound systems and entertainment services for unforgettable events in Kenya">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Splash Sounds - Professional Event Services"
+    />
+    <meta
+      name="twitter:description"
+      content="Premium sound systems and entertainment services for unforgettable events in Kenya"
+    />
     <!-- <meta name="twitter:image" content="https://splashsounds.co.ke/images/twitter-image.jpg"> -->
-    
+
     <!-- Theme Color for Mobile Browsers -->
-    <meta name="theme-color" content="#ff3366">
-    
+    <meta name="theme-color" content="#ff3366" />
+
     <!-- Favicon (Uncomment when you have the logo) -->
     <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
     <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
-</head>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+  </head>
   <body>
     <!-- Header -->
     <header id="header">
@@ -60,7 +81,9 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="portfolio-gallery.html">Gallery</a></li>
         </ul>
       </div>
     </header>
@@ -137,7 +160,7 @@
 
           <div class="service-card">
             <div class="service-image">
-              <img src="staffspl.jpg" alt="Event Staffing Services" />
+              <img src="staff splash.jpeg" alt="Event Staffing Services" />
               <div class="service-overlay"></div>
             </div>
             <div class="service-content">
@@ -187,6 +210,9 @@
     <section class="portfolio" id="portfolio">
       <div class="container">
         <h2>Our Work</h2>
+        <p class="section-subtitle">
+          A glimpse of our successful events and setups
+        </p>
         <div class="portfolio-grid">
           <div class="portfolio-item">
             <img src="wedspl.jpg" alt="Wedding Event" class="portfolio-img" />
@@ -233,6 +259,44 @@
             </div>
           </div>
         </div>
+
+        <!-- In your index.html, in the portfolio section -->
+        <div class="portfolio-cta">
+          <a
+            href="portfolio-gallery.html"
+            class="btn"
+            id="viewPortfolioBtn"
+            target="_blank"
+          >
+            <i class="fas fa-images"></i> View Full Portfolio Gallery
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2>What Our Clients Say</h2>
+        <p class="section-subtitle">
+          Hear from satisfied clients who have experienced our premium services
+        </p>
+
+        <div class="testimonials-container">
+          <div class="testimonial-slider" id="testimonialSlider">
+            <!-- Testimonial cards will be inserted here by JavaScript -->
+          </div>
+
+          <div class="testimonial-navigation">
+            <button class="testimonial-nav-btn prev-btn" id="prevTestimonial">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+            <button class="testimonial-nav-btn next-btn" id="nextTestimonial">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -254,11 +318,19 @@
               </div>
               <div class="contact-detail">
                 <i class="fas fa-envelope"></i>
-                <p><a href="mailto:info@splashsounds.co.ke">info@splashsounds.co.ke</a></p>
+                <p>
+                  <a href="mailto:info@splashsounds.co.ke"
+                    >info@splashsounds.co.ke</a
+                  >
+                </p>
               </div>
               <div class="contact-detail">
                 <i class="fab fa-whatsapp"></i>
-                <p><a href="https://wa.me/254723281784" target="_blank">+254 723 281784</a></p>
+                <p>
+                  <a href="https://wa.me/254723281784" target="_blank"
+                    >+254 723 281784</a
+                  >
+                </p>
               </div>
             </div>
 
@@ -316,7 +388,7 @@
             <h3>Splash Sounds</h3>
             <p>
               Bringing energy and professionalism to events of all sizes with
-              premium sound systems and entertainment services across .
+              premium sound systems and entertainment services across Kenya .
             </p>
           </div>
 
@@ -326,6 +398,7 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -345,8 +418,16 @@
             <h3>Contact Info</h3>
             <ul class="footer-links">
               <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
-              <li><i class="fas fa-phone"></i> <a href="tel:+254723281784">+254 723 281784</a></li>
-              <li><i class="fas fa-envelope"></i> <a href="mailto:info@splashsounds.co.ke">info@splashsounds.co.ke</a></li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+254723281784">+254 723 281784</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@splashsounds.co.ke"
+                  >info@splashsounds.co.ke</a
+                >
+              </li>
               <li><i class="fas fa-clock"></i> Mon-Sun: 24/7 Available</li>
             </ul>
           </div>
@@ -359,6 +440,38 @@
         </div>
       </div>
     </footer>
+
+    <!-- Portfolio Gallery Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+      <div class="portfolio-modal-content">
+        <div class="portfolio-modal-header">
+          <h3>Our Event Gallery</h3>
+          <span class="portfolio-close-modal">&times;</span>
+        </div>
+        <div class="portfolio-modal-body">
+          <div class="gallery-slider" id="gallerySlider">
+            <!-- Gallery images will be inserted here by JavaScript -->
+          </div>
+
+          <div class="gallery-navigation">
+            <button class="gallery-nav-btn prev-btn" id="prevGallery">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="gallery-counter" id="galleryCounter">
+              <span id="currentSlide">1</span> /
+              <span id="totalSlides">10</span>
+            </div>
+            <button class="gallery-nav-btn next-btn" id="nextGallery">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="gallery-thumbnails" id="galleryThumbnails">
+            <!-- Thumbnails will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Booking Modal -->
     <div class="modal" id="bookingModal">
@@ -389,7 +502,9 @@
                   placeholder="e.g., 0712345678 or +254712345678"
                   required
                 />
-                <small class="phone-hint">Enter your number starting with 07, 01, or +254</small>
+                <small class="phone-hint"
+                  >Enter your number starting with 07, 01, or +254</small
+                >
               </div>
             </div>
 
