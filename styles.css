@@ -1872,3 +1872,35 @@ footer::before {
     grid-template-columns: 1fr;
   }
 }
+/* Fix for Portfolio Gallery Button - Add this to your styles.css */
+#viewPortfolioBtn {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.portfolio-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.portfolio-cta .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 15px 40px !important;
+  font-size: 1.1rem !important;
+  background: linear-gradient(to right, #25d366, #128c7e) !important;
+  border: none !important;
+}
+
+.portfolio-cta .btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+}
+
+/* Ensure all external links work properly */
+a[href^="http"]:not([href*="yourdomain.com"]),
+a[href$=".html"]:not([href^="#"]),
+a[target="_blank"] {
+  cursor: pointer !important;
+}
