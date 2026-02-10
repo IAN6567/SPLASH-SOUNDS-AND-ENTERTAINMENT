@@ -131,7 +131,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     transition: var(--transition);
+}
+
+/* Specific fix for staff image in gallery - show faces */
+.gallery-item:nth-child(8) .gallery-image img,
+.gallery-item:nth-child(3) .gallery-image img {
+    object-position: center 25% !important;
 }
 
 .gallery-item:hover .gallery-image img {

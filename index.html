@@ -259,13 +259,6 @@
             </div>
           </div>
         </div>
-
-        <!-- In your index.html, in the portfolio section -->
-        <div class="portfolio-cta">
-          <a href="portfolio-gallery.html" class="btn" id="viewPortfolioBtn">
-            <i class="fas fa-images"></i> View Full Portfolio Gallery
-        </a>
-        </div>
       </div>
     </section>
 
@@ -556,18 +549,24 @@
             </div>
 
             <div class="form-group full-width">
-              <label for="booking-services">Services Needed *</label>
+              <label>Services Needed *</label>
               <div class="services-checkbox">
                 <label class="checkbox-label">
                   <input
                     type="checkbox"
                     name="booking-services"
                     value="sound-system"
+                    id="service-sound"
                   />
                   Sound System Rental
                 </label>
                 <label class="checkbox-label">
-                  <input type="checkbox" name="booking-services" value="dj" />
+                  <input 
+                    type="checkbox" 
+                    name="booking-services" 
+                    value="dj" 
+                    id="service-dj"
+                  />
                   DJ Services
                 </label>
                 <label class="checkbox-label">
@@ -575,6 +574,7 @@
                     type="checkbox"
                     name="booking-services"
                     value="lighting"
+                    id="service-lighting"
                   />
                   Lighting
                 </label>
@@ -583,6 +583,7 @@
                     type="checkbox"
                     name="booking-services"
                     value="staffing"
+                    id="service-staffing"
                   />
                   Event Staffing
                 </label>
@@ -591,6 +592,7 @@
                     type="checkbox"
                     name="booking-services"
                     value="stage"
+                    id="service-stage"
                   />
                   Stage Setup
                 </label>

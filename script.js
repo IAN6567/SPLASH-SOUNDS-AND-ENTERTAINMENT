@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: "smooth"
           });
         }
-        // If target doesn't exist (external page), let browser handle normally
       }
     });
   });
@@ -230,7 +229,7 @@ function isValidKenyanPhone(phone) {
     return kenyanRegex.test(cleaned);
 }
 
-// Booking form submission - SEND TO TWO NUMBERS
+// Booking form submission
 if (bookingForm) {
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -296,8 +295,8 @@ _This booking request was sent from the Splash Sounds Kenya website_
         
         // WhatsApp numbers to send to
         const whatsappNumbers = [
-            "254723281784", // First number
-            "254723281784"  // Second number (same as requested)
+            "254723281784",
+            "254723281784"
         ];
         
         // Function to send message to a number
@@ -325,35 +324,31 @@ _This booking request was sent from the Splash Sounds Kenya website_
 
 // ========== TESTIMONIALS FUNCTIONALITY ==========
 document.addEventListener('DOMContentLoaded', function() {
-    // Testimonials data
+    // Testimonials data WITHOUT avatar images
     const testimonials = [
         {
             name: "Mark Lagat",
             title: "Wedding Client",
             rating: 5,
-            text: "Splash Sounds made our wedding day absolutely magical! The sound system was crystal clear, and the DJ kept everyone on the dance floor all night. Their professionalism and attention to detail were outstanding. Highly recommend!",
-            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            text: "Splash Sounds made our wedding day absolutely magical! The sound system was crystal clear, and the DJ kept everyone on the dance floor all night. Their professionalism and attention to detail were outstanding. Highly recommend!"
         },
         {
             name: "Ian Kangwana",
             title: "Corporate Event Manager",
             rating: 5,
-            text: "We hired Splash Sounds for our annual company conference and they exceeded all expectations. The audio quality was perfect for our presentations, and the lighting setup created the perfect ambiance. Their team was punctual, professional, and extremely talented.",
-            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            text: "We hired Splash Sounds for our annual company conference and they exceeded all expectations. The audio quality was perfect for our presentations, and the lighting setup created the perfect ambiance. Their team was punctual, professional, and extremely talented."
         },
         {
             name: "Stephen Muchiri",
             title: "Birthday Party Host",
             rating: 5,
-            text: "For my 30th birthday party, I wanted everything to be perfect. Splash Sounds delivered beyond my wildest dreams! The DJ understood exactly what the crowd wanted, and the sound system was powerful yet clear. The event staff were incredibly helpful throughout the night.",
-            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            text: "For my 30th birthday party, I wanted everything to be perfect. Splash Sounds delivered beyond my wildest dreams! The DJ understood exactly what the crowd wanted, and the sound system was powerful yet clear. The event staff were incredibly helpful throughout the night."
         },
         {
             name: "Sarah Wanjiku",
             title: "Event Planner",
             rating: 5,
-            text: "As a professional event planner, I've worked with many sound and entertainment companies. Splash Sounds stands out for their reliability, quality equipment, and talented staff. They've never let me down and always make my events shine!",
-            avatar: "https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            text: "As a professional event planner, I've worked with many sound and entertainment companies. Splash Sounds stands out for their reliability, quality equipment, and talented staff. They've never let me down and always make my events shine!"
         }
     ];
 
@@ -385,18 +380,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Generate star rating HTML
                 const stars = '★'.repeat(testimonial.rating);
                 
+                // Updated HTML without avatar image - using icon instead
                 card.innerHTML = `
                     <div class="testimonial-content">
                         <p class="testimonial-text">${testimonial.text}</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <img src="${testimonial.avatar}" alt="${testimonial.name}" />
+                                <i class="fas fa-user-circle"></i>
                             </div>
                             <div class="testimonial-info">
                                 <h4>${testimonial.name}</h4>
                                 <div class="title">${testimonial.title}</div>
                                 <div class="testimonial-rating">
-                                    ${stars.split('').map(() => `<i class="fas fa-star"></i>`).join('')}
+                                    ${'<i class="fas fa-star"></i>'.repeat(testimonial.rating)}
                                 </div>
                             </div>
                         </div>
@@ -471,19 +467,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // Pause auto-advance on hover
         testimonialSlider.addEventListener('mouseenter', stopAutoTestimonial);
         testimonialSlider.addEventListener('mouseleave', startAutoTestimonial);
-    }
-});
-
-// EMERGENCY FIX: Remove ALL JavaScript interference from portfolio gallery button
-document.addEventListener('DOMContentLoaded', function() {
-    const portfolioGalleryBtn = document.getElementById('viewPortfolioBtn');
-    if (portfolioGalleryBtn) {
-        console.log('Portfolio gallery button found');
-        
-        // Clone and replace the button to remove all event listeners
-        const newButton = portfolioGalleryBtn.cloneNode(true);
-        portfolioGalleryBtn.parentNode.replaceChild(newButton, portfolioGalleryBtn);
-        
-        console.log('Portfolio gallery button should now work as a normal link');
     }
 });

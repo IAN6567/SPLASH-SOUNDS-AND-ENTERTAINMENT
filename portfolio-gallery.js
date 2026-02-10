@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
       wedding: "Wedding",
       corporate: "Corporate",
       birthday: "Birthday",
-      concert: "Concerto",
+      concert: "Concert",
       other: "Other Event",
     };
     return labels[type] || type;
