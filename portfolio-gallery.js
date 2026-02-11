@@ -125,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
       guests: "1000+ guests",
       services: ["Festival Sound", "Stage Setup", "Power Management"],
     },
-    // Add more events here if you have more images
   ];
 
   // DOM Elements

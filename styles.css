@@ -1868,3 +1868,29 @@ footer::before {
     grid-template-columns: 1fr;
   }
 }
+/* Our Repertoire Button Styles */
+.btn-repertoire {
+  background: linear-gradient(to right, #33ccff, #6633ff);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-repertoire:hover {
+  background: linear-gradient(to right, #2ab8e6, #5522ee);
+  border-color: white;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .hero-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .hero-btns .btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 5px 0;
+  }
+}
