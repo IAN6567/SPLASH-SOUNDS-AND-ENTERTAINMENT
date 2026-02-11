@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       id: 10,
       image:
-        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "musicfest.jpeg",
       title: "Music Festival",
       description:
         "Large-scale sound systems for outdoor music festival with multiple stages and performers.",
