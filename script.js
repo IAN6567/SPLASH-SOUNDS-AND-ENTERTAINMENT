@@ -293,10 +293,10 @@ _This booking request was sent from the Splash Sounds Kenya website_
         // Format phone number for WhatsApp
         const formattedPhone = formatPhoneNumber(phone);
         
-        // WhatsApp numbers to send to
+        // WhatsApp numbers to send to - UPDATED to +254 719 221000
         const whatsappNumbers = [
-            "254723281784",
-            "254723281784"
+            "254719221000",
+            "254719221000"
         ];
         
         // Function to send message to a number
